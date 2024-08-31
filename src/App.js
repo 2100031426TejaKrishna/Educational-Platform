@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import AssessmentDashboard from './components/AssessmentDashboard/AssessmentDashboard';
+import AssessmentReviewPage from './components/AssessmentReview/AssessmentReviewPage';
+import GradingReviewPage from './components/GradingReview/GradingReviewPage';
+import QuestionBankManagementPage from './components/QuestionBankManagement/QuestionBankManagementPage';
+import StudentAssessmentPage from './components/StudentAssessment/StudentAssessmentPage';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/assessment-dashboard" element={<AssessmentDashboard />} />
+        <Route path="/assessment-review" element={<AssessmentReviewPage />} />
+        <Route path="/grading-review" element={<GradingReviewPage />} />
+        <Route path="/question-bank-management" element={<QuestionBankManagementPage />} />
+        <Route path="/student-assessment" element={<StudentAssessmentPage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
